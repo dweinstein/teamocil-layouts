@@ -1,0 +1,12 @@
+windows:
+  - name: "android-kernel-dev"
+    root: "~/android/kernels"
+    layout: main-horizontal
+    filters:
+      before: "source ~/git/android-kernel-dev/envsetup.sh"
+      after: "echo 'I have exported environment variables for compiling Android ARM kernels.'"
+    panes:
+      - cmd: "vim ."
+        focus: true
+      - cmd: "cscope -R"
+      - cmd:
