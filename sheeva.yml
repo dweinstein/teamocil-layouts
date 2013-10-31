@@ -1,0 +1,12 @@
+
+windows:
+  - name: "sheeva-demo"
+    root: "~/demo/iPhone-demo"
+    layout: main-vertical
+    filters:
+      before:
+        - open /Users/user/Downloads/Local\ Applications/iExplorer.app
+    panes:
+      - cmd: "echo Run ./get_files.sh to get files from the sheevaplug..."
+      - cmd: ssh -t user@192.168.2.7 -- watch \"ls -l filerelay/\"
+      - cmd: "ssh -t user@192.168.2.7"
